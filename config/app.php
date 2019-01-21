@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://ec2-34-222-150-186.us-west-2.compute.amazonaws.com/'),
+    'url' => env('APP_URL'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -119,7 +119,7 @@ return [
     |
     */
 
-    'key' => env('WolDcEsLkFNnSHQosPQjQeWq1SFgEnK2'),
+    'key' => 'WolDcEsLkFNnSHQosPQjQeWq1SFgEnK2',
 
     'cipher' => 'AES-256-CBC',
 
