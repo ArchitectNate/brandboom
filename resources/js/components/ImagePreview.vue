@@ -11,7 +11,8 @@
                 Preview
             </button>
         </div>
-        <div id="img-preview-render">
+        <div id="img-preview-render" class="text-center" v-bind:class="{ 'hidden': !showImage }">
+            <img class="w-100" v-bind:src="previewUrl" />
         </div>
     </div>
 </template>
@@ -21,12 +22,24 @@
         data: function () {
             return {
                 previewUrl: '',
+                showImage: false,
             };
         },
         methods: {
             renderImageFromUrl: function (event) {
-                console.log(this.$data.previewUrl);
-            }
+                if (this.$data.previewUrl != '') {
+                    this.showImage = true;
+                } else {
+                    this.showImage = false;
+                }
+            },
         },
+        watch: {
+            previewUrl: function(val, oldVal) {
+                if (val != oldVal) {
+                    this.showImage = false;
+                }
+            }
+        }
     };
 </script>

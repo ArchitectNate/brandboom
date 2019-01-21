@@ -1812,15 +1812,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 module.exports = {
   data: function data() {
     return {
-      previewUrl: ''
+      previewUrl: '',
+      showImage: false
     };
   },
   methods: {
     renderImageFromUrl: function renderImageFromUrl(event) {
-      console.log(this.$data.previewUrl);
+      if (this.$data.previewUrl != '') {
+        this.showImage = true;
+      } else {
+        this.showImage = false;
+      }
+    }
+  },
+  watch: {
+    previewUrl: function previewUrl(val, oldVal) {
+      if (val != oldVal) {
+        this.showImage = false;
+      }
     }
   }
 };
@@ -36768,7 +36781,15 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", { attrs: { id: "img-preview-render" } })
+    _c(
+      "div",
+      {
+        staticClass: "text-center",
+        class: { hidden: !_vm.showImage },
+        attrs: { id: "img-preview-render" }
+      },
+      [_c("img", { staticClass: "w-100", attrs: { src: _vm.previewUrl } })]
+    )
   ])
 }
 var staticRenderFns = []
