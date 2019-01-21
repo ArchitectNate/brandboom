@@ -3,7 +3,5 @@
 @section('title', 'Image Viewer')
 
 @section('main-content')
-    Test
-    @component('third-party.spinner')
-    @endcomponent
+    <img-preview></img-preview>
 @endsection
